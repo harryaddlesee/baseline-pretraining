@@ -7,7 +7,6 @@
 #SBATCH --ntasks=1                        # Number of tasks (processes)
 #SBATCH --cpus-per-task=4                 # Number of CPU cores per task
 #SBATCH --mem=4GB                         # Total memory limit
-#SBATCH --partition=your_partition_name   # Partition name (adjust as necessary)
 
 # Load any required modules (if needed)
 module load anaconda/2020.07  # Example of loading Anaconda module (adjust as necessary)
