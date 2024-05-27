@@ -17,7 +17,7 @@ source activate myenv
 
 # Run your Python script
 #python /path/to/your_script.py
-python -m torch.distributed.launch --nproc_per_node=1 --master_port=29123 general_train.py --setting "BabyLM/exp_strict.py:opt125m_s1"
+srun --cpus-per-task=2 python -m torch.distributed.launch --nproc_per_node=1 --master_port=29123 general_train.py --setting "BabyLM/exp_strict.py:opt125m_s1"
 
 # Deactivate the conda environment
 conda deactivate
