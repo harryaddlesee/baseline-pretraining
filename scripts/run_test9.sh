@@ -15,7 +15,7 @@
 source activate myenv
 
 # Run your Python script
-python ./Test1.py &> combined_log_%j.txt
+python /users/ha2098/localscratch/baseline-pretraining/scripts/Test1.py &> combined_log_%j.txt
 
 # Deactivate the conda environment
 conda deactivate
