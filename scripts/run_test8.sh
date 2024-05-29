@@ -2,7 +2,7 @@
 #SBATCH --nodes=1
 #SBATCH --time=00:05:00
 #SBATCH --ntasks=1
-#SBATCH --job-name=please
+#SBATCH --job-name=help
 #SBATCH --output=pyJob.%j.out
 #SBATCH --partition=gpu
 module purge
