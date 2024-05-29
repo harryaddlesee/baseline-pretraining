@@ -13,4 +13,4 @@
 
 module load gnu python
 
-python -u Test1.py > test2.out
+srun python -u Test1.py > test2.out
