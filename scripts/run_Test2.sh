@@ -19,7 +19,7 @@ source activate myenv
 # Run your Python script
 #python /scripts/Test1.py
 #srun --cpus-per-task=2 python ./Test1.py &> combined_log_%j.txt
-srun python ./Test1.py
+srun python ./Test1.py &> combined_log_%j.txt
 
 # Deactivate the conda environment
 conda deactivate
