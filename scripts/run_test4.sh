@@ -8,4 +8,4 @@
 
 module load gnu python
 
-python Test1.py > test2.out
+python -u Test1.py > test2.out
