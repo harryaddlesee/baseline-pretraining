@@ -6,6 +6,7 @@
 #SBATCH --ntasks=1
 #SBATCH --job-name=pyJob
 #SBATCH --output=pyJob.%j.out
+#SBATCH --partition=gpu
 module purge
 
 echo "hello"
