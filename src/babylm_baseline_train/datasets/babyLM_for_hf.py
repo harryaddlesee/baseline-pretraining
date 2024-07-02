@@ -1,7 +1,8 @@
 import os
-import datasets
-from babylm_baseline_train.env_vars import DATASET_ROOT_DIR
 
+import datasets
+
+from babylm_baseline_train.env_vars import DATASET_ROOT_DIR
 
 _CITATION = """
 """
@@ -34,23 +35,38 @@ class babyLMConfig(datasets.BuilderConfig):
 
 class babyLM(datasets.GeneratorBasedBuilder):
     """TODO: Short description of dataset dataset."""
+
     DATA_SOURCES = [
-            'aochildes', 'bnc_spoken', 'cbt', 'children_stories',
-            'gutenberg', 'open_subtitles', 'qed',  'simple_wikipedia',
-            'switchboard',  'wikipedia']
+        # "aochildes",
+        # "bnc_spoken",
+        # "cbt",
+        # "children_stories",
+        # "gutenberg",
+        # "open_subtitles",
+        # "qed",
+        # "simple_wikipedia",
+        # "switchboard",
+        # "wikipedia",
+        "bnc_spoken",
+        "childes",
+        "gutenberg",
+        "open_subtitles",
+        "simple_wiki",
+        "switchboard",
+    ]
     VERSION = datasets.Version("0.0.0")
     BUILDER_CONFIGS = [
-            babyLMConfig(
-                name="babyLM-10M",
-                data_url=os.path.join(_DATA_URL, 'babylm_10M'),
-                description="Raw level dataset: the raw tokens before the addition of <unk> tokens. 10M tokens.",
-            ),
-            babyLMConfig(
-                name="babyLM-100M",
-                data_url=os.path.join(_DATA_URL, 'babylm_100M'),
-                description="Raw level dataset: the raw tokens before the addition of <unk> tokens. 100M tokens.",
-            ),
-            ]
+        babyLMConfig(
+            name="babyLM-10M",
+            data_url=os.path.join(_DATA_URL, "babylm_10M"),
+            description="Raw level dataset: the raw tokens before the addition of <unk> tokens. 10M tokens.",
+        ),
+        babyLMConfig(
+            name="babyLM-100M",
+            data_url=os.path.join(_DATA_URL, "babylm_100M"),
+            description="Raw level dataset: the raw tokens before the addition of <unk> tokens. 100M tokens.",
+        ),
+    ]
 
     def _info(self):
         return datasets.DatasetInfo(
@@ -59,7 +75,8 @@ class babyLM(datasets.GeneratorBasedBuilder):
             # datasets.features.FeatureConnectors
             features=datasets.Features(
                 {
-                    "text": datasets.Value("string")
+                    "text": datasets.Value("string"),
+                    "source": datasets.Value("string"),
                     # These are the features of your dataset like images, labels ...
                 }
             ),
@@ -75,14 +92,20 @@ class babyLM(datasets.GeneratorBasedBuilder):
     def _split_generators(self, dl_manager):
         """Returns SplitGenerators."""
         ret_list = [
-            datasets.SplitGenerator(
-                name=datasets.Split.TEST,
-                gen_kwargs={"data_folder": os.path.join(_DATA_URL, "babylm_test"), "split": "test"},
-            ),
-            datasets.SplitGenerator(
-                name=datasets.Split.VALIDATION,
-                gen_kwargs={"data_folder": os.path.join(_DATA_URL, "babylm_dev"), "split": "dev"},
-            ),
+            # datasets.SplitGenerator(
+            #     name=datasets.Split.TEST,
+            #     gen_kwargs={
+            #         "data_folder": os.path.join(_DATA_URL, "babylm_test"),
+            #         "split": "test",
+            #     },
+            # ),
+            # datasets.SplitGenerator(
+            #     name=datasets.Split.VALIDATION,
+            #     gen_kwargs={
+            #         "data_folder": os.path.join(_DATA_URL, "babylm_dev"),
+            #         "split": "dev",
+            #     },
+            # ),
             datasets.SplitGenerator(
                 name=datasets.Split.TRAIN,
                 gen_kwargs={"data_folder": self.config.data_url, "split": "train"},
@@ -92,15 +115,12 @@ class babyLM(datasets.GeneratorBasedBuilder):
 
     def _generate_examples(self, data_folder, split):
         """Yields examples."""
-        all_data_files = [
-                os.path.join(data_folder, f'{source}.{split}')
-                for source in self.DATA_SOURCES]
-        all_lines = []
-        for data_file in all_data_files:
-            with open(data_file, encoding="utf-8") as f:
-                all_lines.extend(f.readlines())
-        for idx, row in enumerate(all_lines):
-            if row.strip():
-                yield idx, {"text": row}
-            else:
-                yield idx, {"text": ""}
+
+        for source in self.DATA_SOURCES:
+            source_file = os.path.join(data_folder, f"{source}.{split}")
+
+            with open(source_file, encoding="utf-8") as f:
+                for idx, row in enumerate(f):
+                    text = row.strip()
+                    # TODO: preprocess text depending on the source
+                    yield idx, {"text": text, "source": source}

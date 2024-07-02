@@ -1,9 +1,7 @@
-from transformers import AutoTokenizer
-import torch
 from abc import ABC, abstractmethod
-from transformers import GPT2Tokenizer
-import ipdb
+
 from tqdm import tqdm
+from transformers import GPT2Tokenizer
 
 from .utils import Group_Texts
 
@@ -15,9 +13,9 @@ class BaseGroupDataset(ABC):
 
     def prepare_tokenizer(self):
         if self.tokenizer is None:
-            #self.tokenizer = AutoTokenizer.from_pretrained(
+            # self.tokenizer = AutoTokenizer.from_pretrained(
             #        "gpt2", fast=False)
-            model_name = f"facebook/opt-125m"
+            model_name = "facebook/opt-125m"
             self.tokenizer = GPT2Tokenizer.from_pretrained(model_name)
 
     @abstractmethod
@@ -25,7 +23,7 @@ class BaseGroupDataset(ABC):
         pass
 
     def tokenize_function(self, examples):
-        outputs = self.tokenizer(examples['text'])
+        outputs = self.tokenizer(examples["text"])
         return outputs
 
     def get_group_dataset(self, just_dataset=False):
@@ -33,31 +31,31 @@ class BaseGroupDataset(ABC):
         self.get_dataset()
         if just_dataset == True:
             return self.dataset
-        elif just_dataset == 'self':
+        elif just_dataset == "self":
             return self
 
         tokenized_datasets = self.dataset.map(
-                self.tokenize_function, batched=True, 
-                remove_columns=["text"])
+            self.tokenize_function, batched=True, remove_columns=["text"]
+        )
         group_text_default = Group_Texts(
-                tokenized_datasets, self.tokenizer, 
-                seq_len=self.seq_len)
+            tokenized_datasets, self.tokenizer, seq_len=self.seq_len
+        )
 
         grouped_dataset_default = group_text_default.group_texts()
         return grouped_dataset_default
 
     def count_num_of_words(self):
         import re
-        import inflect
+
         import nltk.data
         from tqdm import tqdm
 
-        tokenizer = nltk.data.load('tokenizers/punkt/english.pickle')
+        tokenizer = nltk.data.load("tokenizers/punkt/english.pickle")
         num = 0
         for data in tqdm(self.dataset):
-            sents = tokenizer.tokenize(data['text'])
+            sents = tokenizer.tokenize(data["text"])
             for sent in sents:
-                tokens = re.findall('\w+', sent)
+                tokens = re.findall("\w+", sent)
                 num += len(tokens)
         return num
 
