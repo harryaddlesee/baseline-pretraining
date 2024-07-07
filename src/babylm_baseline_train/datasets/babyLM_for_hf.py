@@ -37,22 +37,22 @@ class babyLM(datasets.GeneratorBasedBuilder):
     """TODO: Short description of dataset dataset."""
 
     DATA_SOURCES = [
-        # "aochildes",
-        # "bnc_spoken",
-        # "cbt",
-        # "children_stories",
-        # "gutenberg",
-        # "open_subtitles",
-        # "qed",
-        # "simple_wikipedia",
-        # "switchboard",
-        # "wikipedia",
+        "aochildes",
         "bnc_spoken",
-        "childes",
+        "cbt",
+        "children_stories",
         "gutenberg",
         "open_subtitles",
-        "simple_wiki",
+        "qed",
+        "simple_wikipedia",
         "switchboard",
+        "wikipedia",
+        #"bnc_spoken",
+        #"childes",
+        #"gutenberg",
+        #"open_subtitles",
+        #"simple_wiki",
+        #"switchboard",
     ]
     VERSION = datasets.Version("0.0.0")
     BUILDER_CONFIGS = [
