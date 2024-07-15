@@ -28,6 +28,8 @@ import sys
 from dataclasses import dataclass, field
 from itertools import chain
 from typing import Optional
+    
+#is_torch_xla_available,
 
 import datasets
 import evaluate
@@ -42,8 +44,7 @@ from transformers import (
     Trainer,
     TrainingArguments,
     default_data_collator,
-    #is_torch_xla_available,
-    is_torch_tpu_available
+    is_torch_tpu_available,
     set_seed,
 )
 from transformers.testing_utils import CaptureLogger
