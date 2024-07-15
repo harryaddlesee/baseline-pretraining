@@ -403,7 +403,13 @@ def main():
     #         "trust_remote_code": model_args.trust_remote_code,
     #     }
 
-    config = AutoConfig.from_pretrained("facebook/opt-125m")
+    if "opt" in model_args.model_name_or_path:
+        config = AutoConfig.from_pretrained("facebook/opt-125m")
+ 
+    else:
+        config = LlamaConfig(hidden_size=768, num_hidden_layers=12, num_key_value_heads=3, max_position_embeddings=2048, vocab_size=50272, bos_token_id=2, eos_token_id=2, intermediate_size=3072)
+   
+    #config = AutoConfig.from_pretrained("facebook/opt-125m")
 
     tokenizer = AutoTokenizer.from_pretrained("facebook/opt-125m")
 
