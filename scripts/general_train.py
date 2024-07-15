@@ -46,6 +46,7 @@ from transformers import (
     default_data_collator,
     is_torch_tpu_available,
     set_seed,
+    LlamaConfig,
 )
 from transformers.testing_utils import CaptureLogger
 from transformers.trainer_utils import get_last_checkpoint
