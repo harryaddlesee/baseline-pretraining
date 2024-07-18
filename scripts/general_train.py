@@ -511,6 +511,7 @@ def main():
             )
         block_size = min(data_args.block_size, tokenizer.model_max_length)
 
+    logger = logging.getLogger(__name__)
     # Main data processing function that will concatenate all texts from our dataset and generate chunks of block_size.
     def group_texts(examples):
         # TODO: make sure that we first group them by source, then do whatever hugginface does for each source separately
@@ -529,6 +530,11 @@ def main():
             for k, t in concatenated_examples.items()
         }
         result["labels"] = result["input_ids"].copy()
+
+        # Log shapes for debugging
+        logger.info(f"Shape of input_ids: {len(result['input_ids'])} x {len(result['input_ids'][0])}")
+        logger.info(f"Shape of labels: {len(result['labels'])} x {len(result['labels'][0])}")
+
         return result
 
     # Note that with `batched=True`, this map processes 1,000 texts together, so group_texts throws away a remainder
