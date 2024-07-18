@@ -511,7 +511,6 @@ def main():
             )
         block_size = min(data_args.block_size, tokenizer.model_max_length)
 
-    logger = logging.getLogger(__name__)
     # Main data processing function that will concatenate all texts from our dataset and generate chunks of block_size.
     def group_texts(examples):
         # TODO: make sure that we first group them by source, then do whatever hugginface does for each source separately
