@@ -531,8 +531,14 @@ def main():
         result["labels"] = result["input_ids"].copy()
 
         # Log shapes for debugging
-        logger.info(f"Shape of input_ids: {len(result['input_ids'])} x {len(result['input_ids'][0])}")
-        logger.info(f"Shape of labels: {len(result['labels'])} x {len(result['labels'][0])}")
+        try:
+            logger.info(f"Shape of input_ids: {len(result['input_ids'])} x {len(result['input_ids'][0])}")
+            logger.info(f"Shape of labels: {len(result['labels'])} x {len(result['labels'][0])}")
+        except IndexError as e:
+            logger.error(f"Error accessing list index: {e}")
+            logger.error(f"Result keys: {result.keys()}")
+            logger.error(f"Length of input_ids: {len(result['input_ids']) if 'input_ids' in result else 'N/A'}")
+            logger.error(f"Length of labels: {len(result['labels']) if 'labels' in result else 'N/A'}")
 
         return result
 
