@@ -1,0 +1,327 @@
+/mnt/scratch/users/ha2098/venv/lib64/python3.9/site-packages/torchvision/io/image.py:11: UserWarning: Failed to load image Python extension: /mnt/scratch/users/ha2098/venv/lib/python3.9/site-packages/torchvision/image.so: undefined symbol: _ZNK3c1010TensorImpl36is_contiguous_nondefault_policy_implENS_12MemoryFormatE
+  warn(f"Failed to load image Python extension: {e}")
+WARNING:__main__:Process rank: 0, device: cuda:0, n_gpu: 1, distributed training: False, 16-bits training: False
+INFO:__main__:Training/evaluation parameters TrainingArguments(
+_n_gpu=1,
+accelerator_config={'split_batches': False, 'dispatch_batches': None, 'even_batches': True, 'use_seedable_sampler': True, 'non_blocking': False, 'gradient_accumulation_kwargs': None, 'use_configured_state': False},
+adafactor=False,
+adam_beta1=0.9,
+adam_beta2=0.999,
+adam_epsilon=1e-08,
+auto_find_batch_size=False,
+batch_eval_metrics=False,
+bf16=False,
+bf16_full_eval=False,
+data_seed=None,
+dataloader_drop_last=False,
+dataloader_num_workers=0,
+dataloader_persistent_workers=False,
+dataloader_pin_memory=True,
+dataloader_prefetch_factor=2,
+ddp_backend=None,
+ddp_broadcast_buffers=None,
+ddp_bucket_cap_mb=None,
+ddp_find_unused_parameters=None,
+ddp_timeout=1800,
+debug=[],
+deepspeed=None,
+disable_tqdm=False,
+dispatch_batches=None,
+do_eval=False,
+do_predict=False,
+do_train=True,
+eval_accumulation_steps=None,
+eval_delay=0,
+eval_do_concat_batches=True,
+eval_on_start=False,
+eval_steps=None,
+eval_strategy=no,
+evaluation_strategy=None,
+fp16=False,
+fp16_backend=auto,
+fp16_full_eval=False,
+fp16_opt_level=O1,
+fsdp=[],
+fsdp_config={'min_num_params': 0, 'xla': False, 'xla_fsdp_v2': False, 'xla_fsdp_grad_ckpt': False},
+fsdp_min_num_params=0,
+fsdp_transformer_layer_cls_to_wrap=None,
+full_determinism=False,
+gradient_accumulation_steps=1,
+gradient_checkpointing=False,
+gradient_checkpointing_kwargs=None,
+greater_is_better=None,
+group_by_length=False,
+half_precision_backend=auto,
+hub_always_push=False,
+hub_model_id=None,
+hub_private_repo=False,
+hub_strategy=every_save,
+hub_token=<HUB_TOKEN>,
+ignore_data_skip=False,
+include_inputs_for_metrics=False,
+include_num_input_tokens_seen=False,
+include_tokens_per_second=False,
+jit_mode_eval=False,
+label_names=None,
+label_smoothing_factor=0.0,
+learning_rate=5e-05,
+length_column_name=length,
+load_best_model_at_end=False,
+local_rank=0,
+log_level=passive,
+log_level_replica=warning,
+log_on_each_node=True,
+logging_dir=trainDir/model_checkpoints/runs/Jul07_20-04-50_gpu02.pri.dmog.alces.network,
+logging_first_step=False,
+logging_nan_inf_filter=True,
+logging_steps=500,
+logging_strategy=steps,
+lr_scheduler_kwargs={},
+lr_scheduler_type=linear,
+max_grad_norm=1.0,
+max_steps=-1,
+metric_for_best_model=None,
+mp_parameters=,
+neftune_noise_alpha=None,
+no_cuda=False,
+num_train_epochs=3.0,
+optim=adamw_torch,
+optim_args=None,
+optim_target_modules=None,
+output_dir=trainDir/model_checkpoints,
+overwrite_output_dir=False,
+past_index=-1,
+per_device_eval_batch_size=8,
+per_device_train_batch_size=8,
+prediction_loss_only=False,
+push_to_hub=False,
+push_to_hub_model_id=None,
+push_to_hub_organization=None,
+push_to_hub_token=<PUSH_TO_HUB_TOKEN>,
+ray_scope=last,
+remove_unused_columns=True,
+report_to=[],
+restore_callback_states_from_checkpoint=False,
+resume_from_checkpoint=None,
+run_name=trainDir/model_checkpoints,
+save_on_each_node=False,
+save_only_model=False,
+save_safetensors=True,
+save_steps=500,
+save_strategy=steps,
+save_total_limit=None,
+seed=42,
+skip_memory_metrics=True,
+split_batches=None,
+tf32=None,
+torch_compile=False,
+torch_compile_backend=None,
+torch_compile_mode=None,
+torchdynamo=None,
+tpu_metrics_debug=False,
+tpu_num_cores=None,
+use_cpu=False,
+use_ipex=False,
+use_legacy_prediction_loop=False,
+use_mps_device=False,
+warmup_ratio=0.0,
+warmup_steps=0,
+weight_decay=0.0,
+)
+INFO:__main__:Checkpoint detected, resuming training at trainDir/model_checkpoints/checkpoint-5970. To avoid this behavior, change the `--output_dir` or add `--overwrite_output_dir` to train from scratch.
+/mnt/scratch/users/ha2098/venv/lib64/python3.9/site-packages/datasets/load.py:929: FutureWarning: The repository for babyLM_for_hf contains custom code which must be executed to correctly load the dataset. You can inspect the repository content at /mnt/scratch/users/ha2098/venv/projects/baseline-pretraining/src/babylm_baseline_train/datasets/babyLM_for_hf.py
+You can avoid this message in future by passing the argument `trust_remote_code=True`.
+Passing `trust_remote_code=True` will be mandatory to load this dataset from the next major release of `datasets`.
+  warnings.warn(
+Loading Dataset Infos from /users/ha2098/.cache/huggingface/modules/datasets_modules/datasets/babyLM_for_hf/780a3f694f13aacac03d47cbf53212e908064b4d8838d55fcb0591a47aa1474f
+INFO:datasets.info:Loading Dataset Infos from /users/ha2098/.cache/huggingface/modules/datasets_modules/datasets/babyLM_for_hf/780a3f694f13aacac03d47cbf53212e908064b4d8838d55fcb0591a47aa1474f
+Overwrite dataset info from restored data version if exists.
+INFO:datasets.builder:Overwrite dataset info from restored data version if exists.
+Loading Dataset info from /users/ha2098/.cache/huggingface/datasets/baby_lm_for_hf/babyLM-10M/1.0.0/780a3f694f13aacac03d47cbf53212e908064b4d8838d55fcb0591a47aa1474f
+INFO:datasets.info:Loading Dataset info from /users/ha2098/.cache/huggingface/datasets/baby_lm_for_hf/babyLM-10M/1.0.0/780a3f694f13aacac03d47cbf53212e908064b4d8838d55fcb0591a47aa1474f
+Found cached dataset baby_lm_for_hf (/users/ha2098/.cache/huggingface/datasets/baby_lm_for_hf/babyLM-10M/1.0.0/780a3f694f13aacac03d47cbf53212e908064b4d8838d55fcb0591a47aa1474f)
+INFO:datasets.builder:Found cached dataset baby_lm_for_hf (/users/ha2098/.cache/huggingface/datasets/baby_lm_for_hf/babyLM-10M/1.0.0/780a3f694f13aacac03d47cbf53212e908064b4d8838d55fcb0591a47aa1474f)
+Loading Dataset info from /users/ha2098/.cache/huggingface/datasets/baby_lm_for_hf/babyLM-10M/1.0.0/780a3f694f13aacac03d47cbf53212e908064b4d8838d55fcb0591a47aa1474f
+INFO:datasets.info:Loading Dataset info from /users/ha2098/.cache/huggingface/datasets/baby_lm_for_hf/babyLM-10M/1.0.0/780a3f694f13aacac03d47cbf53212e908064b4d8838d55fcb0591a47aa1474f
+[INFO|configuration_utils.py:733] 2024-07-07 20:04:54,577 >> loading configuration file config.json from cache at /users/ha2098/.cache/huggingface/hub/models--facebook--opt-125m/snapshots/27dcfa74d334bc871f3234de431e71c6eeba5dd6/config.json
+[INFO|configuration_utils.py:800] 2024-07-07 20:04:54,577 >> Model config OPTConfig {
+  "_name_or_path": "facebook/opt-125m",
+  "_remove_final_layer_norm": false,
+  "activation_dropout": 0.0,
+  "activation_function": "relu",
+  "architectures": [
+    "OPTForCausalLM"
+  ],
+  "attention_dropout": 0.0,
+  "bos_token_id": 2,
+  "do_layer_norm_before": true,
+  "dropout": 0.1,
+  "enable_bias": true,
+  "eos_token_id": 2,
+  "ffn_dim": 3072,
+  "hidden_size": 768,
+  "init_std": 0.02,
+  "layer_norm_elementwise_affine": true,
+  "layerdrop": 0.0,
+  "max_position_embeddings": 2048,
+  "model_type": "opt",
+  "num_attention_heads": 12,
+  "num_hidden_layers": 12,
+  "pad_token_id": 1,
+  "prefix": "</s>",
+  "torch_dtype": "float16",
+  "transformers_version": "4.42.3",
+  "use_cache": true,
+  "vocab_size": 50272,
+  "word_embed_proj_dim": 768
+}
+
+[INFO|configuration_utils.py:733] 2024-07-07 20:04:54,693 >> loading configuration file config.json from cache at /users/ha2098/.cache/huggingface/hub/models--facebook--opt-125m/snapshots/27dcfa74d334bc871f3234de431e71c6eeba5dd6/config.json
+[INFO|configuration_utils.py:800] 2024-07-07 20:04:54,693 >> Model config OPTConfig {
+  "_name_or_path": "facebook/opt-125m",
+  "_remove_final_layer_norm": false,
+  "activation_dropout": 0.0,
+  "activation_function": "relu",
+  "architectures": [
+    "OPTForCausalLM"
+  ],
+  "attention_dropout": 0.0,
+  "bos_token_id": 2,
+  "do_layer_norm_before": true,
+  "dropout": 0.1,
+  "enable_bias": true,
+  "eos_token_id": 2,
+  "ffn_dim": 3072,
+  "hidden_size": 768,
+  "init_std": 0.02,
+  "layer_norm_elementwise_affine": true,
+  "layerdrop": 0.0,
+  "max_position_embeddings": 2048,
+  "model_type": "opt",
+  "num_attention_heads": 12,
+  "num_hidden_layers": 12,
+  "pad_token_id": 1,
+  "prefix": "</s>",
+  "torch_dtype": "float16",
+  "transformers_version": "4.42.3",
+  "use_cache": true,
+  "vocab_size": 50272,
+  "word_embed_proj_dim": 768
+}
+
+[INFO|tokenization_utils_base.py:2161] 2024-07-07 20:04:54,725 >> loading file vocab.json from cache at /users/ha2098/.cache/huggingface/hub/models--facebook--opt-125m/snapshots/27dcfa74d334bc871f3234de431e71c6eeba5dd6/vocab.json
+[INFO|tokenization_utils_base.py:2161] 2024-07-07 20:04:54,725 >> loading file merges.txt from cache at /users/ha2098/.cache/huggingface/hub/models--facebook--opt-125m/snapshots/27dcfa74d334bc871f3234de431e71c6eeba5dd6/merges.txt
+[INFO|tokenization_utils_base.py:2161] 2024-07-07 20:04:54,725 >> loading file tokenizer.json from cache at None
+[INFO|tokenization_utils_base.py:2161] 2024-07-07 20:04:54,725 >> loading file added_tokens.json from cache at None
+[INFO|tokenization_utils_base.py:2161] 2024-07-07 20:04:54,725 >> loading file special_tokens_map.json from cache at /users/ha2098/.cache/huggingface/hub/models--facebook--opt-125m/snapshots/27dcfa74d334bc871f3234de431e71c6eeba5dd6/special_tokens_map.json
+[INFO|tokenization_utils_base.py:2161] 2024-07-07 20:04:54,725 >> loading file tokenizer_config.json from cache at /users/ha2098/.cache/huggingface/hub/models--facebook--opt-125m/snapshots/27dcfa74d334bc871f3234de431e71c6eeba5dd6/tokenizer_config.json
+[INFO|configuration_utils.py:733] 2024-07-07 20:04:54,726 >> loading configuration file config.json from cache at /users/ha2098/.cache/huggingface/hub/models--facebook--opt-125m/snapshots/27dcfa74d334bc871f3234de431e71c6eeba5dd6/config.json
+[INFO|configuration_utils.py:800] 2024-07-07 20:04:54,726 >> Model config OPTConfig {
+  "_name_or_path": "facebook/opt-125m",
+  "_remove_final_layer_norm": false,
+  "activation_dropout": 0.0,
+  "activation_function": "relu",
+  "architectures": [
+    "OPTForCausalLM"
+  ],
+  "attention_dropout": 0.0,
+  "bos_token_id": 2,
+  "do_layer_norm_before": true,
+  "dropout": 0.1,
+  "enable_bias": true,
+  "eos_token_id": 2,
+  "ffn_dim": 3072,
+  "hidden_size": 768,
+  "init_std": 0.02,
+  "layer_norm_elementwise_affine": true,
+  "layerdrop": 0.0,
+  "max_position_embeddings": 2048,
+  "model_type": "opt",
+  "num_attention_heads": 12,
+  "num_hidden_layers": 12,
+  "pad_token_id": 1,
+  "prefix": "</s>",
+  "torch_dtype": "float16",
+  "transformers_version": "4.42.3",
+  "use_cache": true,
+  "vocab_size": 50272,
+  "word_embed_proj_dim": 768
+}
+
+[INFO|configuration_utils.py:733] 2024-07-07 20:04:54,823 >> loading configuration file config.json from cache at /users/ha2098/.cache/huggingface/hub/models--facebook--opt-125m/snapshots/27dcfa74d334bc871f3234de431e71c6eeba5dd6/config.json
+[INFO|configuration_utils.py:800] 2024-07-07 20:04:54,824 >> Model config OPTConfig {
+  "_name_or_path": "facebook/opt-125m",
+  "_remove_final_layer_norm": false,
+  "activation_dropout": 0.0,
+  "activation_function": "relu",
+  "architectures": [
+    "OPTForCausalLM"
+  ],
+  "attention_dropout": 0.0,
+  "bos_token_id": 2,
+  "do_layer_norm_before": true,
+  "dropout": 0.1,
+  "enable_bias": true,
+  "eos_token_id": 2,
+  "ffn_dim": 3072,
+  "hidden_size": 768,
+  "init_std": 0.02,
+  "layer_norm_elementwise_affine": true,
+  "layerdrop": 0.0,
+  "max_position_embeddings": 2048,
+  "model_type": "opt",
+  "num_attention_heads": 12,
+  "num_hidden_layers": 12,
+  "pad_token_id": 1,
+  "prefix": "</s>",
+  "torch_dtype": "float16",
+  "transformers_version": "4.42.3",
+  "use_cache": true,
+  "vocab_size": 50272,
+  "word_embed_proj_dim": 768
+}
+
+[INFO|configuration_utils.py:1000] 2024-07-07 20:04:54,876 >> Generate config GenerationConfig {
+  "bos_token_id": 2,
+  "eos_token_id": 2,
+  "pad_token_id": 1
+}
+
+INFO:__main__:Training new model from scratch - Total size=119.44M params
+Loading cached processed dataset at /users/ha2098/.cache/huggingface/datasets/baby_lm_for_hf/babyLM-10M/1.0.0/780a3f694f13aacac03d47cbf53212e908064b4d8838d55fcb0591a47aa1474f/cache-220515d5c2c31a93.arrow
+INFO:datasets.arrow_dataset:Loading cached processed dataset at /users/ha2098/.cache/huggingface/datasets/baby_lm_for_hf/babyLM-10M/1.0.0/780a3f694f13aacac03d47cbf53212e908064b4d8838d55fcb0591a47aa1474f/cache-220515d5c2c31a93.arrow
+Loading cached processed dataset at /users/ha2098/.cache/huggingface/datasets/baby_lm_for_hf/babyLM-10M/1.0.0/780a3f694f13aacac03d47cbf53212e908064b4d8838d55fcb0591a47aa1474f/cache-220515d5c2c31a93.arrow
+INFO:datasets.arrow_dataset:Loading cached processed dataset at /users/ha2098/.cache/huggingface/datasets/baby_lm_for_hf/babyLM-10M/1.0.0/780a3f694f13aacac03d47cbf53212e908064b4d8838d55fcb0591a47aa1474f/cache-220515d5c2c31a93.arrow
+WARNING:__main__:The tokenizer picked seems to have a very large `model_max_length` (1000000000000000019884624838656). Using block_size=1024 instead. You can change that default value by passing --block_size xxx.
+Loading cached processed dataset at /users/ha2098/.cache/huggingface/datasets/baby_lm_for_hf/babyLM-10M/1.0.0/780a3f694f13aacac03d47cbf53212e908064b4d8838d55fcb0591a47aa1474f/cache-fd7b69b1385daab5.arrow
+INFO:datasets.arrow_dataset:Loading cached processed dataset at /users/ha2098/.cache/huggingface/datasets/baby_lm_for_hf/babyLM-10M/1.0.0/780a3f694f13aacac03d47cbf53212e908064b4d8838d55fcb0591a47aa1474f/cache-fd7b69b1385daab5.arrow
+Loading cached processed dataset at /users/ha2098/.cache/huggingface/datasets/baby_lm_for_hf/babyLM-10M/1.0.0/780a3f694f13aacac03d47cbf53212e908064b4d8838d55fcb0591a47aa1474f/cache-fd7b69b1385daab5.arrow
+INFO:datasets.arrow_dataset:Loading cached processed dataset at /users/ha2098/.cache/huggingface/datasets/baby_lm_for_hf/babyLM-10M/1.0.0/780a3f694f13aacac03d47cbf53212e908064b4d8838d55fcb0591a47aa1474f/cache-fd7b69b1385daab5.arrow
+[INFO|trainer.py:2515] 2024-07-07 20:04:57,931 >> Loading model from trainDir/model_checkpoints/checkpoint-5970.
+[WARNING|trainer.py:2743] 2024-07-07 20:04:58,870 >> There were missing keys in the checkpoint model loaded: ['lm_head.weight'].
+[INFO|trainer.py:2128] 2024-07-07 20:05:01,292 >> ***** Running training *****
+[INFO|trainer.py:2129] 2024-07-07 20:05:01,292 >>   Num examples = 15,914
+[INFO|trainer.py:2130] 2024-07-07 20:05:01,292 >>   Num Epochs = 3
+[INFO|trainer.py:2131] 2024-07-07 20:05:01,292 >>   Instantaneous batch size per device = 8
+[INFO|trainer.py:2134] 2024-07-07 20:05:01,292 >>   Total train batch size (w. parallel, distributed & accumulation) = 8
+[INFO|trainer.py:2135] 2024-07-07 20:05:01,292 >>   Gradient Accumulation steps = 1
+[INFO|trainer.py:2136] 2024-07-07 20:05:01,292 >>   Total optimization steps = 5,970
+[INFO|trainer.py:2137] 2024-07-07 20:05:01,292 >>   Number of trainable parameters = 125,239,296
+[INFO|trainer.py:2159] 2024-07-07 20:05:01,293 >>   Continuing training from checkpoint, will skip to saved global_step
+[INFO|trainer.py:2160] 2024-07-07 20:05:01,293 >>   Continuing training from epoch 3
+[INFO|trainer.py:2161] 2024-07-07 20:05:01,293 >>   Continuing training from global step 5970
+[INFO|trainer.py:2163] 2024-07-07 20:05:01,293 >>   Will skip the first 3 epochs then the first 0 batches in the first epoch.
+  0%|          | 0/5970 [00:00<?, ?it/s][INFO|trainer.py:2383] 2024-07-07 20:05:01,295 >> 
+
+Training completed. Do not forget to share your model on huggingface.co/models =)
+
+
+                                          0%|          | 0/5970 [00:00<?, ?it/s]  0%|          | 0/5970 [00:00<?, ?it/s]
+[INFO|trainer.py:3478] 2024-07-07 20:05:01,298 >> Saving model checkpoint to trainDir/model_checkpoints
+[INFO|configuration_utils.py:472] 2024-07-07 20:05:01,301 >> Configuration saved in trainDir/model_checkpoints/config.json
+[INFO|configuration_utils.py:769] 2024-07-07 20:05:01,303 >> Configuration saved in trainDir/model_checkpoints/generation_config.json
+[INFO|modeling_utils.py:2690] 2024-07-07 20:05:01,987 >> Model weights saved in trainDir/model_checkpoints/model.safetensors
+[INFO|tokenization_utils_base.py:2574] 2024-07-07 20:05:01,990 >> tokenizer config file saved in trainDir/model_checkpoints/tokenizer_config.json
+[INFO|tokenization_utils_base.py:2583] 2024-07-07 20:05:01,991 >> Special tokens file saved in trainDir/model_checkpoints/special_tokens_map.json
+[INFO|modelcard.py:449] 2024-07-07 20:05:02,197 >> Dropping the following result as it does not have all the necessary fields:
+{'task': {'name': 'Causal Language Modeling', 'type': 'text-generation'}, 'dataset': {'name': 'baby_lm_for_hf', 'type': 'baby_lm_for_hf', 'config': 'babyLM-10M', 'split': 'train', 'args': 'babyLM-10M'}}
