@@ -37,7 +37,7 @@ class babyLM(datasets.GeneratorBasedBuilder):
     VERSION = datasets.Version("0.0.0")
     BUILDER_CONFIGS = [
         babyLMConfig(
-            name="babyLM-custom",
+            name="babyLM-10M",
             data_url=os.path.join(_DATA_URL, "/users/ha2098/sharedscratch/venv/projects/evaluation-pipeline-2024/combined_filter.txt"),
             description="Dataset of extracted nouns and verbs.",
         ),
