@@ -427,7 +427,6 @@ def main():
     #    intermediate_size=3072
     #    )
 
-    
     config = AutoConfig.from_pretrained("facebook/opt-125m")
 
     tokenizer = AutoTokenizer.from_pretrained("facebook/opt-125m")
