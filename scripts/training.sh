@@ -12,5 +12,5 @@
 
 # Run your Python script
 export BABYLM_ROOT_DIR=/users/ha2098/sharedscratch/venv/projects/baseline-pretraining/trainDir
-#python scripts/general_train.py --output_dir trainDir/model_checkpoints_llama --do_train
-python scripts/opt_train.py --output_dir trainDir/model_checkpoints --do_train
+python scripts/general_train.py --output_dir trainDir/model_checkpoints_newOpt --do_train
+#python scripts/opt_train.py --output_dir trainDir/model_checkpoints --do_train
