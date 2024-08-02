@@ -431,6 +431,7 @@ def main():
         )
 
     #config = AutoConfig.from_pretrained("facebook/opt-125m")
+    tokenizer.model_max_length = config.max_position_embeddings
 
 
     model = AutoModelForCausalLM.from_config(
