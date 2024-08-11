@@ -9,9 +9,9 @@ repo_path = babylm_baseline_train.__path__[0]
 def get_babyLM(name, split):
     dataset = load_dataset(
             path=os.path.join(
-                repo_path, 'datasets', "babyLM_for_hf3.py"),
+                #repo_path, 'datasets', "babyLM_for_hf3.py"),
                 #repo_path, 'datasets', "babyLM_for_hf2.py"),
-                #repo_path, 'datasets', "babyLM_for_hf.py"),
+                repo_path, 'datasets', "babyLM_for_hf.py"),
             name=name,
             split=split)
     return dataset
